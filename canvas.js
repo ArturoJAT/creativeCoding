@@ -12,7 +12,7 @@ window.onload = function () {
         this.dx = dx;
         this.dy = dy;
         this.r = r;
-        
+
     }
 
     var dots = [];
@@ -23,7 +23,9 @@ window.onload = function () {
     canvas.height = parent.offsetHeight;
     var WIDTH = canvas.width;
     var HEIGHT = canvas.height;
-
+    if (WIDTH <= 414) {
+        numberOfDots = 25;
+    }
     window.addEventListener('resize', function (event) {
         var parent = canvas.parentElement;
         console.log(parent);
@@ -42,7 +44,7 @@ window.onload = function () {
             var y = Math.floor(Math.random() * (HEIGHT - 20)) + 10;
             var dx = (Math.random()) * 2 - 1;
             var dy = (Math.random()) * 2 - 1;
- 
+
             var dot = new Dot(x, y, dx, dy, r);
             dots.push(dot);
 
@@ -95,8 +97,8 @@ window.onload = function () {
 
     function circle(dot) {
         ctx.beginPath();
-        var color = (dot.x * 360)/WIDTH;
-        ctx.fillStyle = 'hsl('+color+',100%,50%)';
+        var color = (dot.x * 360) / WIDTH;
+        ctx.fillStyle = 'hsl(' + color + ',100%,50%)';
         ctx.arc(dot.x, dot.y, dot.r, 0, Math.PI * 2, true);
         ctx.closePath();
         ctx.fill();
