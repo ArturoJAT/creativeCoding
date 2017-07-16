@@ -3,8 +3,8 @@ window.onload = function () {
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
     var color = "#ffffff";
-    var numberOfDots = 120;
-    var conDistance = 200;
+    var numberOfDots = 100;
+    var conDistance = 180;
 
     function Dot(x, y, dx, dy, r) {
         this.x = x;
@@ -25,6 +25,7 @@ window.onload = function () {
     var HEIGHT = canvas.height;
     if (WIDTH <= 414) {
         numberOfDots = 25;
+        conDistance = 120;
     }
     window.addEventListener('resize', function (event) {
         var parent = canvas.parentElement;
@@ -112,7 +113,7 @@ window.onload = function () {
             ctx.beginPath();
             ctx.moveTo(dot1.x, dot1.y);
             ctx.lineTo(dot2.x, dot2.y);
-            ctx.strokeStyle = 'rgba(255, 255, 255,' + (200 - c) / 200 + ')';
+            ctx.strokeStyle = 'rgba(255, 255, 255,' + (conDistance - c) / conDistance + ')';
             ctx.stroke();
         }
     }
