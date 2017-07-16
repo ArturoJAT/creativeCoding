@@ -77,13 +77,14 @@ window.onload = function () {
                 console.log(dots[i].y + " " + HEIGHT);
 
             }
-            circle(dots[i]);
-
             for (var c = 0; c < dots.length; c++) {
                 if (i + 1 < dots.length && c != i) {
                     line(dots[i], dots[c])
                 }
             }
+            circle(dots[i]);
+
+
             if (dots[i].x + dots[i].dx > WIDTH || dots[i].x + dots[i].dx < 0) {
                 dots[i].dx = -dots[i].dx;
             }
