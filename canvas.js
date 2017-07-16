@@ -12,6 +12,7 @@ window.onload = function () {
         this.dx = dx;
         this.dy = dy;
         this.r = r;
+        
     }
 
     var dots = [];
@@ -94,7 +95,8 @@ window.onload = function () {
 
     function circle(dot) {
         ctx.beginPath();
-        ctx.fillStyle = color;
+        var color = (dot.x * 360)/WIDTH;
+        ctx.fillStyle = 'hsl('+color+',100%,50%)';
         ctx.arc(dot.x, dot.y, dot.r, 0, Math.PI * 2, true);
         ctx.closePath();
         ctx.fill();
