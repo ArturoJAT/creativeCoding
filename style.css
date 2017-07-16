@@ -1,0 +1,25 @@
+html,body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: red;
+}
+
+html {
+    background-color: blue;
+}
+
+canvas {
+    background-color: #555555;
+}
+
+div {
+    float: center;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
