@@ -2,7 +2,6 @@ window.onload = function () {
 
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
-    var color = "#ffffff";
     var numberOfDots = 100;
     var conDistance = 180;
 
@@ -18,7 +17,6 @@ window.onload = function () {
     var dots = [];
 
     var parent = canvas.parentElement;
-    console.log(parent);
     canvas.width = parent.offsetWidth;
     canvas.height = parent.offsetHeight;
     var WIDTH = canvas.width;
@@ -29,7 +27,6 @@ window.onload = function () {
     }
     window.addEventListener('resize', function (event) {
         var parent = canvas.parentElement;
-        console.log(parent);
         canvas.width = parent.offsetWidth;
         canvas.height = parent.offsetHeight;
         WIDTH = canvas.width;
@@ -39,7 +36,7 @@ window.onload = function () {
 
     function init() {
         var r = 2;
-        for (var i = 0; i < numberOfDots; i++) {
+        for (var i = numberOfDots; i--;) {
 
             var x = Math.floor(Math.random() * (WIDTH - 20)) + 10;
             var y = Math.floor(Math.random() * (HEIGHT - 20)) + 10;
@@ -53,7 +50,6 @@ window.onload = function () {
             if (r > 5)
                 r = 2;
         }
-        console.log(dots);
         start();
         requestAnimationFrame(start);
 
@@ -67,17 +63,15 @@ window.onload = function () {
     function draw() {
         clear();
 
-        for (var i = 0; i < dots.length; i++) {
+        for (var i = numberOfDots; i--;) {
             if (dots[i].x > WIDTH) {
-                console.log(dots[i].x + " " + WIDTH);
                 dots[i].x = WIDTH - 30;
             }
             if (dots[i].y > HEIGHT) {
                 dots[i].y = HEIGHT - 30;
-                console.log(dots[i].y + " " + HEIGHT);
 
             }
-            for (var c = 0; c < dots.length; c++) {
+            for (var c = numberOfDots; c--;) {
                 if (i + 1 < dots.length && c != i) {
                     line(dots[i], dots[c])
                 }
